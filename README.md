@@ -10,4 +10,4 @@
 
 • Does not depend on other services
 
-    •(although refers to the books & borrowing
+    • although refers to the books & borrowing services
