@@ -2,7 +2,6 @@ package com.library.management.member.web.mappers;
 
 import com.library.management.member.domain.Member;
 import com.library.management.member.model.MemberDto;
-import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 
 

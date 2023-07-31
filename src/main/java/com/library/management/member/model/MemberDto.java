@@ -1,10 +1,12 @@
 package com.library.management.member.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import java.time.OffsetDateTime;
 import java.util.Date;
@@ -23,6 +25,8 @@ public class MemberDto {
     private String firstName;
     @NotBlank
     private String lastName;
+    @NotBlank
+    private String email;
     private String details;
 
     private Date membershipExpirationDate;

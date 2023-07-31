@@ -24,6 +24,7 @@ public class Member {
     private String firstName;
     @NotNull
     private String lastName;
+    private String email;
     private String details;
 
     private Date membershipExpirationDate;

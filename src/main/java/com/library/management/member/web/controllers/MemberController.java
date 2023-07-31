@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @RequestMapping("/api/v1/member")
 @RestController
@@ -21,6 +23,13 @@ public class MemberController {
     public ResponseEntity<MemberDto> findMemberById(@PathVariable("memberId") Long memberId)
     {
         return new ResponseEntity<>(memberService.findMemberById(memberId), HttpStatus.OK);
+    }
+
+    //Get member details
+    @GetMapping("/all-emails")
+    public ResponseEntity<List<String>> getEmailAddressAll()
+    {
+        return new ResponseEntity<>(memberService.getEmailAddressAll(), HttpStatus.OK);
     }
 
     // Add new member

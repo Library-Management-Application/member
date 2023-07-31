@@ -12,6 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -56,5 +60,20 @@ public class MemberService {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new NotFoundException(String.format("memberId -> %s not found!", memberId.toString())));
         return memberMapper.memberToMemberDto(member);
+    }
+
+    public List<String> getEmailAddressAll() {
+        final List<Member> members = memberRepository.findAll();
+
+        List<String> membersEmails = new ArrayList<>();
+
+        final Date today = new Date();
+        if (members != null)
+        {
+            membersEmails = members.stream().filter(m -> m.getMembershipExpirationDate().after(today))
+                    .map(m-> m.getEmail()).collect(Collectors.toList());
+        }
+
+        return membersEmails;
     }
 }
